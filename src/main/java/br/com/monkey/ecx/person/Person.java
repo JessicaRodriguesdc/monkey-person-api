@@ -25,10 +25,10 @@ public class Person {
 	@NotEmpty
 	private String firstName;
 
-    @NotEmpty
+	@NotEmpty
 	private String lastName;
 
-    @NotEmpty
+	@NotEmpty
 	private LocalDate birthDate;
 
 }
