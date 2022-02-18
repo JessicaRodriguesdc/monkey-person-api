@@ -5,16 +5,16 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import org.springframework.hateoas.server.core.Relation;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import static lombok.AccessLevel.PRIVATE;
 
-@Entity
 @Getter
-@ToString
-@Builder(toBuilder = true)
-@NoArgsConstructor(access = PRIVATE)
-@AllArgsConstructor(access = PRIVATE)
+@Entity
+@AllArgsConstructor
+@ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor(access = PRIVATE)
 @Relation(value = "person", collectionRelation = "persons")
 public class Person {
 
@@ -28,7 +28,7 @@ public class Person {
 	@NotEmpty
 	private String lastName;
 
-	@NotEmpty
+	@NotNull
 	private LocalDate birthDate;
 
 }
