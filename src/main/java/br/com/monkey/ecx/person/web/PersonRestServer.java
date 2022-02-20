@@ -40,7 +40,7 @@ public class PersonRestServer {
 
 	@GetMapping("{cpf}")
 	@ResponseStatus(HttpStatus.OK)
-	Person findById(@PathVariable String cpf) {
+	public Person findById(@PathVariable String cpf) {
 		return query.findById(cpf);
 	}
 }
