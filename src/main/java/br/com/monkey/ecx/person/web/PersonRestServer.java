@@ -23,4 +23,10 @@ public class PersonRestServer {
 		return command.create(person);
 	}
 
+	@PutMapping
+	@ResponseStatus(HttpStatus.OK)
+	public Person update(@RequestBody @Valid Person person) {
+		return command.update(person);
+	}
+
 }

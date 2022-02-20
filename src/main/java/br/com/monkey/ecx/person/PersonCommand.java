@@ -18,4 +18,11 @@ public class PersonCommand {
 		return repository.save(person);
 	}
 
+	public Person update(Person person) {
+		if (repository.findById(person.getCpf()).isEmpty()) {
+			throw new RuntimeException("Pessoa não cadastrada");
+		}
+		return repository.save(person);
+	}
+
 }
