@@ -2,6 +2,7 @@ package br.com.monkey.ecx.person.web;
 
 import br.com.monkey.ecx.person.Person;
 import br.com.monkey.ecx.person.PersonCommand;
+import br.com.monkey.ecx.person.PersonQuery;
 import lombok.AllArgsConstructor;
 import org.springframework.hateoas.server.ExposesResourceFor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,8 @@ import javax.validation.Valid;
 public class PersonRestServer {
 
 	private final PersonCommand command;
+
+	private final PersonQuery query;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
@@ -35,4 +38,9 @@ public class PersonRestServer {
 		command.delete(cpf);
 	}
 
+	@GetMapping("{cpf}")
+	@ResponseStatus(HttpStatus.OK)
+	Person findById(@PathVariable String cpf) {
+		return query.findById(cpf);
+	}
 }
