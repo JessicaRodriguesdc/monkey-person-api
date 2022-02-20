@@ -18,7 +18,7 @@ public class PersonQuery {
     public Person findById(String cpf) {
         Optional<Person> person = repository.findById(cpf);
         if (person.isEmpty()) {
-            throw new RuntimeException("Pessoa n encontrada");
+            throw new RuntimeException("Pessoa não encontrada");
         }
         return person.get();
     }
