@@ -29,4 +29,10 @@ public class PersonRestServer {
 		return command.update(person);
 	}
 
+	@DeleteMapping("{cpf}")
+	@ResponseStatus(HttpStatus.OK)
+	public void delete(@PathVariable String cpf) {
+		command.delete(cpf);
+	}
+
 }

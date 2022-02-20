@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 @Transactional(rollbackFor = Exception.class)
@@ -23,6 +25,14 @@ public class PersonCommand {
 			throw new RuntimeException("Pessoa não cadastrada");
 		}
 		return repository.save(person);
+	}
+
+	public void delete(String cpf) {
+		Optional<Person> personDb = repository.findById(cpf);
+		if (personDb.isEmpty()) {
+			throw new RuntimeException("Pessoa não cadastrada");
+		}
+		repository.delete(personDb.get());
 	}
 
 }
