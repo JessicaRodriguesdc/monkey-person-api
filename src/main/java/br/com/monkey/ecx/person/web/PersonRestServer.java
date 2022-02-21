@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -42,5 +43,10 @@ public class PersonRestServer {
 	@ResponseStatus(HttpStatus.OK)
 	public Person findById(@PathVariable String cpf) {
 		return query.findById(cpf);
+	}
+	@GetMapping()
+	@ResponseStatus(HttpStatus.OK)
+	public List<Person> findAll(){
+		return query.findAll();
 	}
 }
