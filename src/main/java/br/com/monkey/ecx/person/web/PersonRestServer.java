@@ -44,7 +44,7 @@ public class PersonRestServer {
 	public Person findById(@PathVariable String cpf) {
 		return query.findById(cpf);
 	}
-	@GetMapping()
+	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public List<Person> findAll(){
 		return query.findAll();
